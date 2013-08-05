@@ -3,5 +3,24 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js')
+    script(src='https://js.balancedpayments.com/v1/balanced.js')
+    script(src='/javascripts/balanced_form.js', type='text/javascript', charset='utf-8')
+    
+    block head
+
+
   body
-    block content
+    .container-narrow
+      block header
+        .header
+            ul.nav.nav-pills.pull-right
+              li.active
+                a(href='#') Home
+              li
+                a(href='#') About
+              li
+                a(href='#') Contact
+            h3.text-muted Project name
+        block content
