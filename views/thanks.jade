@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .jumbotron
+    h1 Thank you!
+    p.lead
+      |Dear #{name}, 
+      | Thanks for your contribution. #{amount}
+    p
+      a.btn.btn-large.btn-success(href='/') Homepage

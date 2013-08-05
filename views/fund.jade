@@ -1,0 +1,43 @@
+extends layout
+
+block head
+  script
+    var BALANCED_MARKETPLACE_URI = "/v1/marketplaces/TEST-MP4iVQ5mW6Wcl3VCw8pxocec";
+    balanced.init('/v1/marketplaces/TEST-MP4iVQ5mW6Wcl3VCw8pxocec');
+    $(document).ready(function() {
+      // $('form').submit(charge);  // @FIXME
+      $('#pay').click(charge);
+    });
+
+block content
+  .container
+    form#payment_form.form-horizontal(method='POST')
+      .form-group
+        label.col-lg-3.control-label(for='name') Name
+        .col-lg-9
+          input#name.form-control(type='text', placeholder='Name', name='name', value='brad')
+      .form-group
+        label.col-lg-3.control-label(for='amount') Amount
+        .col-lg-9
+          input#amount.form-control(type='text', placeholder='Amount', name='amount', value='100')
+      .form-group
+        label.col-lg-3.control-label(for='card_number') Card Number
+        .col-lg-9
+          input#card_number.form-control(type='text', placeholder='Card Number', name='card_number', value='4111111111111111')
+      .form-group
+        label.col-lg-3.control-label(for='expiration_month') Expiration Month
+        .col-lg-9
+          input#expiration_month.form-control(type='text', placeholder='Expiration Month', name='expiration_month', value='12')
+      .form-group
+        label.col-lg-3.control-label(for='expiration_month') Expiration Year
+        .col-lg-9
+          input#expiration_year.form-control(type='text', placeholder='Expiration Year', name='expiration_year', value='2015')
+      .form-group
+        label.col-lg-3.control-label(for='security_code') Security Code
+        .col-lg-9
+          input#security_code.form-control(type='text', placeholder='Security Code', name='security_code', value='123')
+          input#card_uri(type='text', name='card_uri')
+    .form-group
+      .col-lg-9.col-offset-3
+        button.btn.btn-primary#pay(type='submit') Pay with Credit Card
+
